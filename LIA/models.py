@@ -25,6 +25,15 @@ def create_models(all_feature_data, pca_feature_data):
     pca_model : fn
         PCA transformation.
     """
+
+    def ensure_str(data):
+        if type(data) == bytes:
+            data = data.decode("utf-8")
+        return data
+
+    all_feature_data = ensure_str(all_feature_data)
+    pca_feature_data = ensure_str(pca_feature_data)
+
     coeffs = np.genfromtxt(all_feature_data, delimiter=' ', usecols=np.arange(2,49))
 
     pca = decomposition.PCA(n_components=44, whiten=True, svd_solver='auto')
