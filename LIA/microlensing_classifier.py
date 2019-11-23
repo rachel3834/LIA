@@ -10,7 +10,7 @@ from sklearn import decomposition
 from warnings import warn
 from LIA import extract_features
 
-VERSION = 'antares_v1.2'
+VERSION = 'antares_v1.1'
 
 def predict(mag, magerr, rf_model, pca_model):
     """This function uses machine learning to classify any given lightcurve as either
